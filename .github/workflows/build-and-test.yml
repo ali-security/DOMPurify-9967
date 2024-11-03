@@ -35,8 +35,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Install yarn
+        run: npm install -g yarn@1.22.1 # Specify the desired yarn version
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Build
         run: npm run build
       - name: Lint
